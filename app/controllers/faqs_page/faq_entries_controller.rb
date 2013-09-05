@@ -15,7 +15,7 @@ module FaqsPage
 
     private
     def get_category_template
-      category_name = @category.try(:name)
+      category_name = @category.try(:name) || 'default'
       FaqsPage.config.category_templates[category_name] || 'application'
     end
   end
