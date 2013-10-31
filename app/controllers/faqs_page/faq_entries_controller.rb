@@ -3,13 +3,13 @@ module FaqsPage
     layout :get_category_template
 
     def index
-      @category = Category.where(:name => params[:category]).first
+      @category = FaqsPage::Category.where(:name => params[:category]).first
 
 
       if @category
-        @faq_entries = FaqEntry.where(:category_id => @category.id).order(:position)
+        @faq_entries = FaqsPage::FaqEntry.where(:category_id => @category.id).order(:position)
       else
-        @faq_entries = FaqEntry.where(:category_id => nil).order(:position)
+        @faq_entries = FaqsPage::FaqEntry.where(:category_id => nil).order(:position)
       end
     end
 
