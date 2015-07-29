@@ -1,3 +1,8 @@
+<% if @category.try(:noindex) %>
+  <% content_for :meta_tags do %>
+    <meta name="robots" content="noindex, follow"/>
+  <% end %>
+<% end %>
 <section class="faqs-navigation">
   <ul>
     <% @faq_entries.each do |entry| %>
